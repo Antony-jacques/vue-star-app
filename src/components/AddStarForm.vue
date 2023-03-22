@@ -15,7 +15,8 @@
         </v-col>
 
         <v-col cols="12">
-            <v-file-input @change="handleFileChange" clearable label="File input"></v-file-input>
+            <v-file-input @change="handleFileChange" accept="image/*" clearable 
+             label="Select an image"></v-file-input>
         </v-col>
       </v-row>
 
@@ -95,8 +96,7 @@ export default {
   handleFileChange(e){
     const file = e.target.files[0]
     this.imageURL = URL.createObjectURL(file)
-  }
-
+  },
 },
 }
 </script>
