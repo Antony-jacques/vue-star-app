@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
  data(){
    return {
@@ -70,7 +72,8 @@ export default {
    }
  },
  computed:{
-   getSubmitedCharacter(){
+  ...mapState(['listOfStars']),
+  getSubmitedCharacter(){
      return {
       firstname: this.firstname,
       lastname: this.lastname,
@@ -81,23 +84,32 @@ export default {
  },
 
   methods: {
-  async validate () {
-    const { valid } = await this.$refs.form.validate()
+    ...mapMutations({
+      addStar: 'addStar'
+    }),
+    async validate () {
+      const { valid } = await this.$refs.form.validate()
 
-    if (valid) alert('Form is valid')
-  },
-  reset () {
-    this.$refs.form.reset()
-  },
-  submit(){
-    console.log('submit', this.getSubmitedCharacter)
-  },
+      if (valid) alert('Form is valid')
+    },
+    reset () {
+      this.$refs.form.reset()
+    },
+    submit(){
+      console.log('submit', this.getSubmitedCharacter)
+      this.addStar(this.getSubmitedCharacter)
+      this.firstname = ''
+      this.lastname = ''
+      this.description = ''
+      this.imageURL = ''
 
-  handleFileChange(e){
-    const file = e.target.files[0]
-    this.imageURL = URL.createObjectURL(file)
+    },
+
+    handleFileChange(e){
+      const file = e.target.files[0]
+      this.imageURL = URL.createObjectURL(file)
+    },
   },
-},
 }
 </script>
 
