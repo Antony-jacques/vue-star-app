@@ -78,8 +78,14 @@ export default {
       firstname: this.firstname,
       lastname: this.lastname,
       description: this.description,
-      imageURL: this.imageURL
+      imageURL: this.imageURL,
+      id: this.getHighestId ? this.getHighestId+1 : 1
      }
+   },
+   getHighestId(){
+     const sortedByIdList =  this.listOfStars.sort((a,b) => a.id - b.id)
+     const lastStar = sortedByIdList.findLast(star => star.id)
+     return lastStar?.id
    }
  },
 
