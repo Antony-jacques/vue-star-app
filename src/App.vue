@@ -10,18 +10,16 @@ import VuetifyComponent from './components/VuetifyComponent.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/star-list">Stars</RouterLink>
+        <RouterLink to="/admin">BackOffice</RouterLink>
       </nav>
     </div>
   </header>
 
   <RouterView />
-        <HelloWorld msg="You did it!" />
-      <VuetifyComponent/>
+
   </v-app>
 </template>
 
@@ -37,7 +35,7 @@ header {
 }
 
 nav {
-  width: 100%;
+  width: auto;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
