@@ -102,11 +102,8 @@ export default {
     },
     submit(){
       this.$refs.form.validate();
-
       this.addStar(this.getSubmitedCharacter)
       this.isSubmited = true
-
-
     },
 
     handleFileChange(e){
@@ -124,7 +121,7 @@ export default {
 
   .img-preview img {
     margin: 1rem auto;
-    max-height: 50vh;
+    max-height: 30vh;
   }
 
 </style>>

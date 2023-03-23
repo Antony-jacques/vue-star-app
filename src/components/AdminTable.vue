@@ -1,4 +1,3 @@
-import { mapState } from 'vuex';
 <template>
   <v-table>
     <thead>
@@ -21,27 +20,20 @@ import { mapState } from 'vuex';
       </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="star in listOfStars"
-        :key="star.id"
-      >
-        <td>{{ star.firstname }}</td>
-        <td>{{ star.lastname }}</td>
-        <td>{{ star.description }}</td>
-        <td>{{ star.imageURL }}</td>
-        <td><img :src="star.imageURL" alt="image preview"></td>
-      </tr>
+      <AdminStarItem v-for="star in listOfStars" :key="star.id" :star="star"/>
     </tbody>
   </v-table>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import AdminStarItem from '@/components/AdminStarItem.vue'
 
 export default {
     data(){
         return {}
     },
+    components: { AdminStarItem, },
     computed: {
         ...mapState({
             listOfStars: 'listOfStars'
