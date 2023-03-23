@@ -6,9 +6,13 @@ export default createStore({
     listOfStars: [],
   },
   mutations: {
-    addStar: function(state, submitedStar){
+    ADD_STAR(state, submitedStar){
       state.listOfStars.push(submitedStar)
       console.log('new list: ', state.listOfStars)
+    },
+    UPDATE_STAR(state, updatedStar){
+      const targetedStarIndex = state.listOfStars.findIndex(star => star.id === updatedStar.id)
+      state.listOfStars[targetedStarIndex] = updatedStar
     }
   },
   actions: {

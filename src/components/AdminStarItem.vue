@@ -1,4 +1,4 @@
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 <template>
       <tr>
         <td>
@@ -30,6 +30,7 @@ import { mapState } from 'vuex';
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
     data(){
         return {
@@ -49,6 +50,9 @@ export default {
         },
     },
     methods: {
+        ...mapMutations({
+            UPDATE_STAR: 'UPDATE_STAR'
+        }),
         toggleEditMode(){
         this.editMode = !this.editMode;
       },
@@ -58,12 +62,13 @@ export default {
             firstname: this.updatedFirstname,
             lastname: this.updatedLastname,
             description: this.updatedDescription,
-            imageURL: this.updatedImageURL
+            imageURL: this.updatedImageURL,
+            id: this.star.id
           }
 
         console.log('update :', updatedStar)
         this.toggleEditMode()
-        //this.saveUpdatedUser(updatedUser) wip
+        this.UPDATE_STAR(updatedStar) 
       },
 
       removeStar(){

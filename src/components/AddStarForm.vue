@@ -94,7 +94,7 @@ export default {
 
   methods: {
     ...mapMutations({
-      addStar: 'addStar'
+      ADD_STAR: 'ADD_STAR'
     }),
 
     reset () {
@@ -102,7 +102,7 @@ export default {
     },
     submit(){
       this.$refs.form.validate();
-      this.addStar(this.getSubmitedCharacter)
+      this.ADD_STAR(this.getSubmitedCharacter)
       this.isSubmited = true
     },
 
