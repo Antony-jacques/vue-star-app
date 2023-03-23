@@ -17,6 +17,9 @@
         <th class="text-left">
           Image
         </th>
+        <th class="text-left">
+          Actions
+        </th>
       </tr>
     </thead>
     <tbody>
