@@ -1,5 +1,5 @@
 <template>
-    <v-form @submit.prevent="submit"  ref="form" >
+    <v-form @submit.prevent="submit"  ref="form" v-model="isFormValid" >
     <v-container>
       <v-row>
         <v-col cols="12" md="6">
@@ -24,12 +24,14 @@
       <img :src="imageURL" alt="star image"></div>
 
       <div class="d-flex flex-column">
+
+        <v-alert v-if="isSubmited" type="success" title="Thank tou !" text="You star has been added"></v-alert>
         <v-btn
           color="success"
           class="mt-4"
           block
           type=submit
-          
+          :disabled="!isFormValid"
         >
           Validate
         </v-btn>
@@ -57,10 +59,11 @@ export default {
      firstname: '',
      lastname: '',
      description: '',
-     imageURL: '',
+     imageURL: 'https://i1.wp.com/www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg?ssl=1',
+     isSubmited: false,
 
      //form validation
-     valid: true,
+     isFormValid: false,
      nameRules: [
         v => !!v || 'Name is required',
         v => (v && v.length <= 20) || 'Name must be less than 20 characters',
@@ -93,21 +96,16 @@ export default {
     ...mapMutations({
       addStar: 'addStar'
     }),
-    async validate () {
-      const { valid } = await this.$refs.form.validate()
 
-      if (valid) alert('Form is valid')
-    },
     reset () {
       this.$refs.form.reset()
     },
     submit(){
-      console.log('submit', this.getSubmitedCharacter)
+      this.$refs.form.validate();
+
       this.addStar(this.getSubmitedCharacter)
-      this.firstname = ''
-      this.lastname = ''
-      this.description = ''
-      this.imageURL = ''
+      this.isSubmited = true
+
 
     },
 

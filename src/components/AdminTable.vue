@@ -13,10 +13,10 @@ import { mapState } from 'vuex';
           Description
         </th>
         <th class="text-left">
-          Image
+          Image URL
         </th>
         <th class="text-left">
-          Image URL
+          Image
         </th>
       </tr>
     </thead>
