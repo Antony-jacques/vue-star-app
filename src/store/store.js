@@ -8,11 +8,13 @@ export default createStore({
   mutations: {
     ADD_STAR(state, submitedStar){
       state.listOfStars.push(submitedStar)
-      console.log('new list: ', state.listOfStars)
     },
-    UPDATE_STAR(state, updatedStar){
-      const targetedStarIndex = state.listOfStars.findIndex(star => star.id === updatedStar.id)
-      state.listOfStars[targetedStarIndex] = updatedStar
+    UPDATE_STAR(state, targetedStar){
+      const targetedStarIndex = state.listOfStars.findIndex(star => star.id === targetedStar.id)
+      state.listOfStars[targetedStarIndex] = targetedStar
+    },
+    DELETE_STAR(state, targetedStarId){
+      state.listOfStars = state.listOfStars.filter(star => star.id !== targetedStarId)
     }
   },
   actions: {

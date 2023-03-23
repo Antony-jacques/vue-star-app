@@ -21,7 +21,7 @@ import { mapState, mapMutations } from 'vuex';
         <td>
             <v-btn color="warning" icon="mdi-pencil" v-if="!editMode"  @click="toggleEditMode" ></v-btn>
             <v-btn v-if="editMode" color="success"  @click="updateStar" >save</v-btn>
-            <v-btn color="red"  @click="removeUser"> remove <v-icon
+            <v-btn color="red"  @click="removeStar"> remove <v-icon
           end
           icon="mdi-cancel"
         ></v-icon></v-btn>
@@ -51,7 +51,8 @@ export default {
     },
     methods: {
         ...mapMutations({
-            UPDATE_STAR: 'UPDATE_STAR'
+            UPDATE_STAR: 'UPDATE_STAR',
+            DELETE_STAR: 'DELETE_STAR'
         }),
         toggleEditMode(){
         this.editMode = !this.editMode;
@@ -72,7 +73,7 @@ export default {
       },
 
       removeStar(){
-          this.deleteStateStar(this.star.id)
+        this.DELETE_STAR(this.star.id)
       }
 
     }
