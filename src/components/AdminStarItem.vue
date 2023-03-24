@@ -1,4 +1,3 @@
-import { mapState, mapMutations } from 'vuex';
 <template>
       <tr>
         <td>
@@ -19,12 +18,9 @@ import { mapState, mapMutations } from 'vuex';
         </td>
         <td><img :src="star.imageURL" alt="image preview"></td>
         <td>
-            <v-btn color="warning" icon="mdi-pencil" v-if="!editMode"  @click="toggleEditMode" ></v-btn>
+            <v-btn title="edit" color="warning" icon="mdi-pencil" v-if="!editMode"  @click="toggleEditMode" ></v-btn>
             <v-btn v-if="editMode" color="success"  @click="updateStar" >save</v-btn>
-            <v-btn color="red"  @click="removeStar"> remove <v-icon
-          end
-          icon="mdi-cancel"
-        ></v-icon></v-btn>
+            <v-btn title="remove" color="red" icon="mdi-cancel"  @click="removeStar"></v-btn>
         </td>
       </tr>
 </template>

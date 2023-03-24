@@ -122,6 +122,7 @@ export default {
   .img-preview img {
     margin: 1rem auto;
     max-height: 30vh;
+    max-width: 200px;
   }
 
 </style>>
