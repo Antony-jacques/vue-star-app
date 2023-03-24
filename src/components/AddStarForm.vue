@@ -33,7 +33,7 @@
           type=submit
           :disabled="!isFormValid"
         >
-          Validate
+          Submit
         </v-btn>
 
         <v-btn

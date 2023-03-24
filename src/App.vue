@@ -11,8 +11,7 @@ import VuetifyComponent from './components/VuetifyComponent.vue'
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/star-list">Stars</RouterLink>
+        <RouterLink to="/">Stars</RouterLink>
         <RouterLink to="/admin">BackOffice</RouterLink>
       </nav>
     </div>
